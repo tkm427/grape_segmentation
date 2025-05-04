@@ -1,0 +1,10 @@
+/demo/checkpoints/
+/demo/tutorial_exps
+/grape/checkpoints
+/grape/output
+/grape/tutorial_exps
+/checkpoints
+.DS_Store
+/grape/data
+/grape/raw_data
+/tutorial/epoch_12.pth

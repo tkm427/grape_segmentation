@@ -1,0 +1,11 @@
+matplotlib
+numpy
+pycocotools
+scipy
+shapely
+six
+terminaltables
+tqdm
+setuptools==59.5.0
+tensorboard
+jupyterlab

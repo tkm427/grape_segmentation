@@ -1,0 +1,25 @@
+version: '3'
+services:
+  mmdetection-grape:
+    build:
+      context: .
+      args:
+        PYTORCH: "1.9.0"
+        CUDA: "11.1"
+        CUDNN: "8"
+    ports:
+      - "8888:8888"
+      - "8080:8080"
+    volumes:
+      - /disk023/usrs/yamasaki/mmdetection-grape-old:/mmdetection-grape
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              capabilities: [ gpu ]
+    restart: unless-stopped
+    tty: true
+    stdin_open: true
+    # パッケージのインストールだけ行い、コンテナを起動状態に保つ
+    command: /bin/bash -c "cd /mmdetection-grape && pip install --no-cache-dir -e . && tail -f /dev/null"
